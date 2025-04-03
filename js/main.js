@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 bookElement.className = 'card mb-3';
                 bookElement.innerHTML = `
                     <div class="row g-0">
-                        <div class="col-md-4">
+                        <div class="col-md-4 d-flex justify-content-center align-items-center">
                             <img src="${book.image}" class="img-fluid rounded-start" alt="${book.title}">
                         </div>
                         <div class="col-md-8">

@@ -28,7 +28,6 @@ body {
 
 .book-card img {
     height: 300px;
-    object-fit: cover;
 }
 
 /* Button Styles */
