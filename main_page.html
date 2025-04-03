@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Sayfa - Online Kütüphane</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="main_page.html">Online Kütüphane</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="main_page.html">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="books.html">Kitaplar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="buy.html">Sepetim <i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">Profilim</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html" id="logoutButton">Çıkış Yap</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>En Çok Ödünç Alınanlar</h2>
+            <a href="books.html" class="btn btn-outline-primary">Tüm Kitapları Gör</a>
+        </div>
+        
+        <div class="row">
+            <!-- Book Card 1 -->
+            <div class="col-md-3 mb-4">
+                <div class="card book-card fade-in">
+                    <img src="https://via.placeholder.com/200x300" class="card-img-top" alt="Kitap 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Kitap Adı 1</h5>
+                        <p class="card-text">Yazar: Yazar 1</p>
+                        <p class="card-text">Sayfa: 250</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary borrow-btn">Ödünç Al</button>
+                            <button class="btn btn-outline-primary read-btn">Online Oku</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 2 -->
+            <div class="col-md-3 mb-4">
+                <div class="card book-card fade-in">
+                    <img src="https://via.placeholder.com/200x300" class="card-img-top" alt="Kitap 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Kitap Adı 2</h5>
+                        <p class="card-text">Yazar: Yazar 2</p>
+                        <p class="card-text">Sayfa: 300</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary borrow-btn">Ödünç Al</button>
+                            <button class="btn btn-outline-primary read-btn">Online Oku</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 3 -->
+            <div class="col-md-3 mb-4">
+                <div class="card book-card fade-in">
+                    <img src="https://via.placeholder.com/200x300" class="card-img-top" alt="Kitap 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Kitap Adı 3</h5>
+                        <p class="card-text">Yazar: Yazar 3</p>
+                        <p class="card-text">Sayfa: 400</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary borrow-btn">Ödünç Al</button>
+                            <button class="btn btn-outline-primary read-btn">Online Oku</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Book Card 4 -->
+            <div class="col-md-3 mb-4">
+                <div class="card book-card fade-in">
+                    <img src="https://via.placeholder.com/200x300" class="card-img-top" alt="Kitap 4">
+                    <div class="card-body">
+                        <h5 class="card-title">Kitap Adı 4</h5>
+                        <p class="card-text">Yazar: Yazar 4</p>
+                        <p class="card-text">Sayfa: 350</p>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary borrow-btn">Ödünç Al</button>
+                            <button class="btn btn-outline-primary read-btn">Online Oku</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
