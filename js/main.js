@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Disable borrow button
             this.disabled = true;
             this.classList.add('btn-secondary');
-            this.textContent = 'Ödünç Alındı';
+            this.textContent = 'Borrowed';
             
             showNotification('Kitap sepete eklendi!', 'success');
         });
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <p class="card-text">${book.author}</p>
                                 </div>
                                 <button class="btn btn-danger cancel-btn" data-index="${index}">
-                                    <i class="fas fa-times"></i> İptal Et
+                                    <i class="fas fa-times"></i> Cancel
                                 </button>
                             </div>
                         </div>
