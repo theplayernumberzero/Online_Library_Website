@@ -168,16 +168,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Toggle Password Visibility
-    const togglePassword = document.querySelector('.toggle-password');
-    if (togglePassword) {
-        togglePassword.addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
+    document.querySelectorAll('.toggle-password').forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const passwordInput = this.parentElement.querySelector('input');
             const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
             passwordInput.setAttribute('type', type);
-            this.classList.toggle('fa-eye');
-            this.classList.toggle('fa-eye-slash');
+            
+            // Toggle eye icon
+            const icon = this.querySelector('i');
+            if (type === 'text') {
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
         });
-    }
+    });
     
     // Borrow Button Click Handler
     document.querySelectorAll('.borrow-btn').forEach(button => {
