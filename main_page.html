@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page - Online Library</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
 </head>
 <body>
     <!-- Navbar -->
@@ -33,90 +31,197 @@
                     <li class="nav-item">
                         <a class="nav-link" href="profile.html">Profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html" id="logoutButton">Log out</a>
+                    <li class="nav-item" id="authButtonContainer">
+                        
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    
+    <div class="c">
 
-    <!-- Main Content -->
-    <div class="container mt-4">
+        <input type="radio" name="a" id="cr-1" checked>
+        <label for="cr-1" style="--hue: 32"></label>
+        <div class="ci" style="--z: 4">
+          <h2 class="ch" style="--h: 1; --s: 20%; --l: 100%">The Book You Seek Is Just a Click Away</h2>
+          <p class="ch-p" style="--h: 1; --s: 20%; --l: 100%">Explore thousands of books in our library! Find the book you’re looking for, view detailed information, and start reading today.</p>
+          <img src="image/slider.jpg" alt="Slider 1">
+        </div>
+      
+        <input type="radio" name="a" id="cr-2">
+        <label for="cr-2" style="--hue: 82"></label>
+        <div class="ci" style="--z: 3">
+          <h2 class="ch" style="--h: 82; --s: 80%; --l: 90%">Borrow Easily, Read Happily</h2>
+          <p class="ch-p" style="--h: 32; --s: 80%; --l: 90%">Reserve your favorite books online, pick them up from the library, or start reading instantly with available e-books.</p>
+          <img src="image/slider2.jpg" alt="Slider 2">
+        </div>
+      
+        <input type="radio" name="a" id="cr-3">
+        <label for="cr-3" style="--hue: 40"></label>
+        <div class="ci" style="--z: 2">
+          <h2 class="ch" style="--h: 40; --s: 100%; --l: 89%">Share Your Experience, Rate Books</h2>
+          <p class="ch-p" style="--h: 32; --s: 80%; --l: 90%">Rate the books you’ve read, leave reviews, and help other readers discover great titles. Reading is even more fun together!</p>
+          <img src="image/slider3.jpg" alt="Slider 3">
+        </div>
+      
+        <input type="radio" name="a" id="cr-4" />
+        <label for="cr-4" style="--hue: 210"></label>
+        <div class="ci" style="--z: 1">
+          <h2 class="ch" style="--h: 210; --s: 70%; --l: 90%">Enjoy the E-Book Advantage</h2>
+          <p class="ch-p" style="--h: 32; --s: 80%; --l: 90%">Access your favorite books not only in print but also as e-books — read anytime, anywhere from your device!</p>
+          <img src="image/slider4.jpg" alt="Slider 4">
+        </div>
+      
+      </div>
+
+    <div class="container mt-4" id="topBooksList">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2>Most Borrowed</h2>
+            <h2>Most Rated Books</h2>
             <a href="books.html" class="btn btn-outline-primary">Go to the all books</a>
         </div>
-        
         <div class="row">
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/1984.jpg" class="1984" alt="1984">
-                    <div class="card-body">
-                        <h5 class="card-title">1984</h5>
-                        <p class="card-text">Writer: George Orwell</p>
-                        <p class="card-text">Pages: 250</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read Online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Book Card 2 -->
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/anna-Karenina.jpg" class="Anna Karenina" alt="Anna Karenina">
-                    <div class="card-body">
-                        <h5 class="card-title">Anna Karenina</h5>
-                        <p class="card-text">Writer: Tolstoy</p>
-                        <p class="card-text">Pages: 300</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read Online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Book Card 3 -->
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/it.jpg" class="It" alt="It">
-                    <div class="card-body">
-                        <h5 class="card-title">It</h5>
-                        <p class="card-text">Writer: Stephen King</p>
-                        <p class="card-text">Pages: 400</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read Online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Book Card 4 -->
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/white-fang.jpg" class="White Fang" alt="White Fang">
-                    <div class="card-body">
-                        <h5 class="card-title">White Fang</h5>
-                        <p class="card-text">Writer: Jack London</p>
-                        <p class="card-text">Pages: 350</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read Online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
+    <div class="container mt-4" id="topBorrowedBooksList">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2>Most Borrowed Books</h2>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="bookDetailModal" tabindex="-1" aria-labelledby="bookDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <h5 class="modal-title" id="bookDetailModalLabel">Book Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              <div class="row">
+                
+                <div class="col-md-4 text-center">
+                  <img id="bookImage" src="" alt="Book Image" class="img-fluid rounded shadow-sm">
+                </div>
+                
+                <div class="col-md-8">
+                  <h4 id="bookTitle"></h4>
+                  <p><strong>Author Name:</strong> <span id="bookAuthor"></span></p>
+                  <p><strong>Category:</strong> <span id="bookCategory"></span></p>
+                  <p><strong>Number of Pages:</strong> <span id="numberOfPages"></span></p>
+                  <p><strong>Description:</strong></p>
+                  <p id="bookDescription"></p>
+                  <div class="mt-3">
+                    <strong>Rate this book:</strong>
+                    <div id="starRating" class="text-warning fs-4">
+                      <i class="fa-regular fa-star" data-rating="1"></i>
+                      <i class="fa-regular fa-star" data-rating="2"></i>
+                      <i class="fa-regular fa-star" data-rating="3"></i>
+                      <i class="fa-regular fa-star" data-rating="4"></i>
+                      <i class="fa-regular fa-star" data-rating="5"></i>
+                    </div>
+                  </div>
+                  <div class="mt-4" id="buttonGroup">
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <footer class="bg-dark text-white py-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+            <h5 class="mb-1">Online Library</h5>
+            <small>© 2025 All rights reserved.</small>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <a href="main_page.html" class="text-white text-decoration-none me-3">Home</a>
+            <a href="books.html" class="text-white text-decoration-none me-3">All Books</a>
+            <a href="login.html" class="text-white text-decoration-none me-3">Login</a>
+            <a href="signup.html" class="text-white text-decoration-none">Sign up</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+      
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            authControl();
+            fetch('https://localhost:7122/api/books/GetTopRatedBooks')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                var books = data.value;
+                var div = document.querySelector('#topBooksList .row');
+                var html = ``;
+                books.forEach(book => {
+                    html += `
+                        <div class="col-md-3 mb-4" onclick="showBookDetails('${book.bookId}')">
+                            <div class="card book-card fade-in">
+                                <img src="${book.imageBase64}" class="1984" alt="1984">
+                                <div class="card-body">
+                                    <h5 class="card-title">${book.bookName}</h5>
+                                    <p class="card-text">Writer: ${book.authorName}</p>
+                                    <p class="card-text">Ratings: <i class="fa fa-star" style="color:#FEBA17"></i> ${book.rating}</p>
+                                    <div class="d-grid gap-2">
+                                      <button class="btn btn-primary borrow-btn" onclick="addBookToCart('${book.bookId}')">Add to cart</button>
+                                      ${book.isEbook
+                                        ? `<a href="${book.eBookUrl}" class="btn btn-outline-primary read-btn" target="_blank">Read Online</a>`
+                                        : `<button class="btn btn-outline-secondary" disabled>Read Online</button>`
+                                      }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                div.innerHTML = html;
+            });
+
+            fetch("https://localhost:7122/api/books/GetTopBorrowedBooks")
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                var values = data.value;
+                var div = document.querySelector('#topBorrowedBooksList .row');
+                var html = ``;
+                values.forEach(value => {
+                    let book = value.book
+                    html += `
+                    <div class="col-md-3 mb-4" onclick="showBookDetails('${book.id}')">
+                        <div class="card book-card fade-in">
+                            <img src="${book.imageBase64}" class="1984" alt="1984">
+                            <div class="card-body">
+                                <h5 class="card-title">${book.name}</h5>
+                                <p class="card-text">Writer: ${book.authorName}</p>
+                                <p class="card-text"><i class="fa-solid fa-book" style="color:#FF0B55"></i> ${value.borrowCount} times borrowed</p>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary borrow-btn" onclick="addBookToCart('${book.id}')">Add to cart</button>
+                                    ${book.isEbook
+                                        ? `<a href="${book.eBookUrl}" class="btn btn-outline-primary read-btn" target="_blank">Read Online</a>`
+                                        : `<button class="btn btn-outline-secondary" disabled>Read Online</button>`
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                });
+                div.innerHTML = html;
+            });
+        });
+    </script>
+    <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 </html> 

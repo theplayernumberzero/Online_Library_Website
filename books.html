@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All books - Online Library</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="main_page.html">Online Library</a>
@@ -33,8 +29,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="profile.html">Profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html" id="logoutButton">Logout</a>
+                    <li class="nav-item" id="authButtonContainer">
+                        
                     </li>
                 </ul>
             </div>
@@ -52,83 +48,184 @@
             <div class="col-md-6 mx-auto">
                 <div class="input-group">
                     <input type="text" class="form-control" id="searchInput" placeholder="Search by book title...">
-                    <button class="btn btn-primary" type="button" id="searchButton">
+                    <button class="btn btn-primary" type="button" id="searchButton" onclick="searchBooks()">
                         <i class="fas fa-search"></i>
                     </button>
+                </div>
+                <div class="input-group" style="margin-top:15px;">
+                    <div class="form-check" style="margin-right:15px;">
+                        <input class="form-check-input" type="radio" name="radioForEBook" id="allBooks" onchange="searchBooks()" value="0" checked>
+                        <label class="form-check-label" for="allBooks">
+                            All
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="radioForEBook" id="eBooks" onchange="searchBooks()" value="1">
+                        <label class="form-check-label" for="eBooks">
+                            E-Books
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
         
         <div class="row" id="bookList">
-            <!-- Book Card 1 -->
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/1984.jpg" class="1984" alt="1984">
-                    <div class="card-body">
-                        <h5 class="card-title">1984</h5>
-                        <p class="card-text">Writer: George Orwell</p>
-                        <p class="card-text">Pages: 250</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read Online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
-            <!-- Book Card 2 -->
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/anna-Karenina.jpg" class="Anna Karenina" alt="Anna Karenina">
-                    <div class="card-body">
-                        <h5 class="card-title">Anna Karenina</h5>
-                        <p class="card-text">Writer: Tolstoy</p>
-                        <p class="card-text">Pages: 300</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read Online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Book Card 3 -->
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/it.jpg" class="It" alt="It">
-                    <div class="card-body">
-                        <h5 class="card-title">It</h5>
-                        <p class="card-text">Writer: Stephen King</p>
-                        <p class="card-text">Pages: 400</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Book Card 4 -->
-            <div class="col-md-3 mb-4">
-                <div class="card book-card fade-in">
-                    <img src="image/white-fang.jpg" class="White Fang" alt="White Fang">
-                    <div class="card-body">
-                        <h5 class="card-title">White Fang</h5>
-                        <p class="card-text">Writer: Jack London</p>
-                        <p class="card-text">Pages: 350</p>
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-primary borrow-btn">Borrow</button>
-                            <button class="btn btn-outline-primary read-btn">Read online</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
+    <div class="modal fade" id="bookDetailModal" tabindex="-1" aria-labelledby="bookDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            
+            <div class="modal-header">
+              <h5 class="modal-title" id="bookDetailModalLabel">Book Details</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            
+            <div class="modal-body">
+              <div class="row">
+                
+                <div class="col-md-4 text-center">
+                  <img id="bookImage" src="" alt="Book Image" class="img-fluid rounded shadow-sm">
+                </div>
+                
+                <div class="col-md-8">
+                  <h4 id="bookTitle"></h4>
+                  <p><strong>Author Name:</strong> <span id="bookAuthor"></span></p>
+                  <p><strong>Category:</strong> <span id="bookCategory"></span></p>
+                  <p><strong>Number of Pages:</strong> <span id="numberOfPages"></span></p>
+                  <p><strong>Description:</strong></p>
+                  <p id="bookDescription"></p>
+                  <div class="mt-3">
+                    <strong>Rate this book:</strong>
+                    <div id="starRating" class="text-warning fs-4">
+                      <i class="fa-regular fa-star" data-rating="1"></i>
+                      <i class="fa-regular fa-star" data-rating="2"></i>
+                      <i class="fa-regular fa-star" data-rating="3"></i>
+                      <i class="fa-regular fa-star" data-rating="4"></i>
+                      <i class="fa-regular fa-star" data-rating="5"></i>
+                    </div>
+                  </div>
+                  <div class="mt-4" id="buttonGroup">
+                  </div>
+                </div>
+      
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+              <h5 class="mb-1">Online Library</h5>
+              <small>© 2025 All rights reserved.</small>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+              <a href="main_page.html" class="text-white text-decoration-none me-3">Home</a>
+              <a href="books.html" class="text-white text-decoration-none me-3">All Books</a>
+              <a href="login.html" class="text-white text-decoration-none me-3">Login</a>
+              <a href="signup.html" class="text-white text-decoration-none">Sign up</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            authControl();
+
+            fetch('https://localhost:7122/api/books')
+            .then(response => response.json())
+            .then(data => {
+                var books = data.value;
+                var div = document.querySelector('#bookList');
+                var html = ``;
+                if(books==null || books.length==0){
+                    html+=`<div class="text-center text-muted">
+                                <i class="fas fa-book fa-3x mb-3"></i>
+                                <p>There are no books in the library.</p>
+                            </div>`;
+                }
+                else{
+                    books.forEach(book => {
+                        html += `
+                        <div class="col-md-3 mb-4" onclick="showBookDetails('${book.id}')">
+                            <div class="card book-card fade-in">
+                                <img src="${book.imageBase64}" class="1984" alt="1984">
+                                <div class="card-body">
+                                    <h5 class="card-title">${book.name}</h5>
+                                    <p class="card-text">Writer: ${book.authorName}</p>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary borrow-btn" onclick="addBookToCart('${book.id}')">Add to cart</button>
+                                        ${book.isEbook
+                                            ? `<a href="${book.eBookUrl}" class="btn btn-outline-primary read-btn" target="_blank">Read Online</a>`
+                                            : `<button class="btn btn-outline-secondary" disabled>Read Online</button>`
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    });
+                }
+                div.innerHTML = html;
+            });
+        });
+
+        function searchBooks() {
+            var keyword = document.getElementById("searchInput").value.toLowerCase() ?? "";
+            var isEbook = document.querySelector('input[name="radioForEBook"]:checked').value;
+
+            var filters={
+                search : keyword,
+                filterForEBook : isEbook == 1,
+                isEbook : true
+            }
+            const queryString = new URLSearchParams(filters).toString();
+            
+            fetch(`https://localhost:7122/api/books/filters?${queryString}`)
+            .then(response => response.json())
+            .then(data=>{
+                var books = data.value;
+                var div = document.querySelector('#bookList');
+                var html = ``;
+                if(books==null || books.length==0){
+                    html+=`<div class="text-center text-muted">
+                                <i class="fas fa-book fa-3x mb-3"></i>
+                                <p>No books were found matching your search criteria.</p>
+                            </div>`;
+                }
+                else{
+                    books.forEach(book => {
+                        html += `
+                        <div class="col-md-3 mb-4" onclick="showBookDetails('${book.id}')">
+                            <div class="card book-card fade-in">
+                                <img src="${book.imageBase64}" class="1984" alt="1984">
+                                <div class="card-body">
+                                    <h5 class="card-title">${book.name}</h5>
+                                    <p class="card-text">Writer: ${book.authorName}</p>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-primary borrow-btn" onclick="addBookToCart('${book.id}')">Add to cart</button>
+                                        ${book.isEbook
+                                            ? `<a href="${book.eBookUrl}" class="btn btn-outline-primary read-btn" target="_blank">Read Online</a>`
+                                            : `<button class="btn btn-outline-secondary" disabled>Read Online</button>`
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    });
+                }
+                div.innerHTML = html;
+            })
+        }
+    </script>
 </body>
 </html> 

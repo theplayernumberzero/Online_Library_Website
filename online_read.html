@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Reading Book</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
+      background: #fdf6e3;
+    }
+    .reader-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-height: 100vh;
+    }
+    .page {
+      display: none;
+    }
+    .page.active {
+      display: block;
+    }
+    .pagination {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .pagination button {
+      padding: 0.5rem 1rem;
+      margin: 0 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="reader-container">
+    <div id="pages">
+    </div>
+    <div class="pagination">
+      <button onclick="previousPage()">◀ Previous</button>
+      <span id="page-number">1 / 200</span>
+      <button onclick="nextPage()">Next ▶</button>
+    </div>
+  </div>
+
+  <script>
+    const totalPages = 200;
+    let currentPage = 1;
+
+    const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet varius blandit, erat nisl scelerisque sapien, vel vulputate nulla enim in libero. Curabitur sed turpis facilisis, tincidunt elit eget, porta nunc. Vivamus eget volutpat mi. Nulla facilisi. Integer porttitor ligula sit amet sapien ultricies, non suscipit arcu sollicitudin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, nunc sit amet varius blandit, erat nisl scelerisque sapien, vel vulputate nulla enim in libero. Curabitur sed turpis facilisis, tincidunt elit eget, porta nunc. Vivamus eget volutpat mi. Nulla facilisi. Integer porttitor ligula sit amet sapien ultricies, non suscipit arcu sollicitudin.`;
+
+    const pagesContainer = document.getElementById('pages');
+
+    for (let i = 1; i <= totalPages; i++) {
+      const page = document.createElement('div');
+      page.className = 'page';
+      if (i === 1) page.classList.add('active');
+      page.id = `page-${i}`;
+      page.innerHTML = `<h2>Page ${i}</h2><p>${lorem}</p><p>${lorem}</p><p>${lorem}</p>`;
+      pagesContainer.appendChild(page);
+    }
+
+    function showPage(pageNum) {
+      document.querySelector('.page.active').classList.remove('active');
+      document.getElementById(`page-${pageNum}`).classList.add('active');
+      currentPage = pageNum;
+      document.getElementById('page-number').innerText = `${currentPage} / ${totalPages}`;
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        showPage(currentPage + 1);
+      }
+    }
+
+    function previousPage() {
+      if (currentPage > 1) {
+        showPage(currentPage - 1);
+      }
+    }
+  </script>
+</body>
+</html>

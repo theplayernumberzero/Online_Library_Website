@@ -1,0 +1,2673 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "OnlineLibraryProject.WebApi | v1",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:7122"
+    },
+    {
+      "url": "http://localhost:5284"
+    }
+  ],
+  "paths": {
+    "/api/Auth": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/ConfirmEmail": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "confirmationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/Login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginCommandResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginCommandResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginCommandResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Auth/CreateNewTokenByRefreshToken": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNewTokenByRefreshTokenCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNewTokenByRefreshTokenCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateNewTokenByRefreshTokenCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginCommandResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginCommandResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginCommandResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BookCategory": {
+      "get": {
+        "tags": [
+          "BookCategory"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookCategoryListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookCategoryListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookCategoryListDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BookCategory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookCategoryCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookCategoryCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookCategoryCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BookCategory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookCategoryCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookCategoryCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookCategoryCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BookCategory/GetByBookId": {
+      "get": {
+        "tags": [
+          "BookCategory"
+        ],
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfBookCategoryDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfBookCategoryDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfBookCategoryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BookCategory/GetByCategoryId": {
+      "get": {
+        "tags": [
+          "BookCategory"
+        ],
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetBooksByCategoryDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetBooksByCategoryDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetBooksByCategoryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BookCategory/GetByCategoryIds": {
+      "get": {
+        "tags": [
+          "BookCategory"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookCategoryListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookCategoryListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookCategoryListDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/BookRating/GetBookRatings/{bookId}": {
+      "get": {
+        "tags": [
+          "BookRating"
+        ],
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BookRating/GetBookRatingsByUser/{userId}": {
+      "get": {
+        "tags": [
+          "BookRating"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/BookRating": {
+      "post": {
+        "tags": [
+          "BookRating"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookRatingCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookRatingCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookRatingCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BookRating"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookRatingCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookRatingCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookRatingCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BookRating"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookRatingCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookRatingCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookRatingCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Books": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfBookListDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBookCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteBookCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Books/{id}": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfBookDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfBookDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfBookDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Books/Paged": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAllBooksPagedQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAllBooksPagedQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAllBooksPagedQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfBookListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfBookListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfBookListDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Books/FiltersPaged": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetBooksByFiltersPagedQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetBooksByFiltersPagedQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetBooksByFiltersPagedQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfBookListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfBookListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfBookListDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Books/GetTopRatedBooks": {
+      "get": {
+        "tags": [
+          "Books"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfTopRatingBooksDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfTopRatingBooksDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfTopRatingBooksDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Categories": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfCategoryListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfCategoryListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListDataResponseOfCategoryListDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Categories"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCategoryCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCategoryCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCategoryCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Categories"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategoryCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategoryCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategoryCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Categories"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCategoryCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCategoryCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteCategoryCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Categories/{id}": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfCategoryDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfCategoryDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfCategoryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Categories/Paged": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAllCategoriesPagedQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAllCategoriesPagedQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetAllCategoriesPagedQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfCategoryListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfCategoryListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfCategoryListDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Categories/FiltersPaged": {
+      "get": {
+        "tags": [
+          "Categories"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCategoriesByFiltersPagedQuery"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCategoriesByFiltersPagedQuery"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetCategoriesByFiltersPagedQuery"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfCategoryListDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfCategoryListDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PagedListDataResponseOfCategoryListDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Roles/Create": {
+      "post": {
+        "tags": [
+          "Roles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRoleCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRoleCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRoleCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserBookBorrow/GetBookBorrowsByUser/{userId}": {
+      "get": {
+        "tags": [
+          "UserBookBorrow"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetUserBookBorrowsByUserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetUserBookBorrowsByUserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetUserBookBorrowsByUserDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserBookBorrow/GetUserBorrowsByBook/{bookId}": {
+      "get": {
+        "tags": [
+          "UserBookBorrow"
+        ],
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetUserBookBorrowsByBookDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetUserBookBorrowsByBookDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataResponseOfGetUserBookBorrowsByBookDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserBookBorrow": {
+      "post": {
+        "tags": [
+          "UserBookBorrow"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserBookBorrowCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserBookBorrowCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserBookBorrowCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "UserBookBorrow"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserBookBorrowCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserBookBorrowCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserBookBorrowCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "UserBookBorrow"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteUserBookBorrowCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteUserBookBorrowCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteUserBookBorrowCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/UserRoles/Create": {
+      "post": {
+        "tags": [
+          "UserRoles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRoleCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRoleCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRoleCommand"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MessageResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BookCategoryDto": {
+        "required": [
+          "bookName",
+          "authorName",
+          "numberOfPages",
+          "description",
+          "bigImageBase64",
+          "isEbook",
+          "categoryName"
+        ],
+        "type": "object",
+        "properties": {
+          "bookName": {
+            "type": "string"
+          },
+          "authorName": {
+            "type": "string"
+          },
+          "numberOfPages": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "bigImageBase64": {
+            "type": "string"
+          },
+          "isEbook": {
+            "type": "boolean"
+          },
+          "categoryName": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "BookCategoryListDto": {
+        "required": [
+          "bookId",
+          "name",
+          "smallImageBase64",
+          "authorName",
+          "numberOfPages",
+          "isEbook",
+          "categoryName"
+        ],
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "smallImageBase64": {
+            "type": "string"
+          },
+          "authorName": {
+            "type": "string"
+          },
+          "numberOfPages": {
+            "type": "string"
+          },
+          "isEbook": {
+            "type": "boolean"
+          },
+          "categoryName": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BookDto": {
+        "required": [
+          "name",
+          "authorName",
+          "numberOfPages",
+          "description",
+          "bigImageBase64",
+          "isEbook"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "authorName": {
+            "type": "string"
+          },
+          "numberOfPages": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "bigImageBase64": {
+            "type": "string"
+          },
+          "isEbook": {
+            "type": "boolean"
+          }
+        },
+        "nullable": true
+      },
+      "BookListDto": {
+        "required": [
+          "name",
+          "smallImageBase64",
+          "authorName",
+          "numberOfPages",
+          "isEbook"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "smallImageBase64": {
+            "type": "string"
+          },
+          "authorName": {
+            "type": "string"
+          },
+          "numberOfPages": {
+            "type": "string"
+          },
+          "isEbook": {
+            "type": "boolean"
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CategoryDto": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "CategoryListDto": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateBookCategoryCommand": {
+        "required": [
+          "bookId",
+          "categoryId"
+        ],
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "string",
+            "nullable": true
+          },
+          "categoryId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateBookCommand": {
+        "required": [
+          "name",
+          "authorName",
+          "numberOfPages",
+          "stock",
+          "description",
+          "smallImageBase64",
+          "bigImageBase64",
+          "isEBook",
+          "eBookUrl"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfPages": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "smallImageBase64": {
+            "type": "string",
+            "nullable": true
+          },
+          "bigImageBase64": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEBook": {
+            "type": "boolean"
+          },
+          "eBookUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateBookRatingCommand": {
+        "required": [
+          "bookId",
+          "userId",
+          "star"
+        ],
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "star": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CreateCategoryCommand": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateNewTokenByRefreshTokenCommand": {
+        "required": [
+          "userId",
+          "refreshToken"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateRoleCommand": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CreateUserBookBorrowCommand": {
+        "required": [
+          "userId",
+          "bookId",
+          "borrowDate",
+          "borrowEndDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "bookId": {
+            "type": "string",
+            "nullable": true
+          },
+          "borrowDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "borrowEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "boolean"
+          }
+        }
+      },
+      "CreateUserRoleCommand": {
+        "required": [
+          "userId",
+          "roleId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DataResponseOfBookCategoryDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/BookCategoryDto"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "DataResponseOfBookDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/BookDto"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "DataResponseOfCategoryDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/CategoryDto"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "DataResponseOfGetBooksByCategoryDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/GetBooksByCategoryDto"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "DataResponseOfGetUserBookBorrowsByBookDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/GetUserBookBorrowsByBookDto"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "DataResponseOfGetUserBookBorrowsByUserDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "$ref": "#/components/schemas/GetUserBookBorrowsByUserDto"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "DeleteBookCategoryCommand": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DeleteBookCommand": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DeleteBookRatingCommand": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DeleteCategoryCommand": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DeleteUserBookBorrowCommand": {
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "GetAllBooksPagedQuery": {
+        "type": "object",
+        "properties": {
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetAllCategoriesPagedQuery": {
+        "type": "object",
+        "properties": {
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetBooksByCategoryDto": {
+        "required": [
+          "books",
+          "category"
+        ],
+        "type": "object",
+        "properties": {
+          "books": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookListDto"
+            }
+          },
+          "category": {
+            "type": "string"
+          }
+        },
+        "nullable": true
+      },
+      "GetBooksByFiltersPagedQuery": {
+        "type": "object",
+        "properties": {
+          "search": {
+            "type": "string",
+            "nullable": true
+          },
+          "filterForEBook": {
+            "type": "boolean"
+          },
+          "isEBook": {
+            "type": "boolean"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetCategoriesByFiltersPagedQuery": {
+        "type": "object",
+        "properties": {
+          "search": {
+            "type": "string",
+            "nullable": true
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "GetUserBookBorrowsByBookDto": {
+        "required": [
+          "bookId",
+          "bookName",
+          "users"
+        ],
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "string"
+          },
+          "bookName": {
+            "type": "string"
+          },
+          "users": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserDto"
+            }
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
+      "GetUserBookBorrowsByUserDto": {
+        "required": [
+          "userId",
+          "userName",
+          "books",
+          "borrowDate",
+          "borrowEndDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "books": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookListDto"
+            }
+          },
+          "borrowDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "borrowEndDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "nullable": true
+      },
+      "ListDataResponseOfBookCategoryListDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookCategoryListDto"
+            }
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ListDataResponseOfBookListDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookListDto"
+            }
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ListDataResponseOfCategoryListDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoryListDto"
+            }
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ListDataResponseOfTopRatingBooksDto": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TopRatingBooksDto"
+            }
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "LoginCommand": {
+        "required": [
+          "usernameOrEmail",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "usernameOrEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LoginCommandResponse": {
+        "required": [
+          "userId",
+          "token",
+          "refreshToken",
+          "refreshTokenExpires"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "token": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "refreshTokenExpires": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        }
+      },
+      "MessageResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "default": "Transaction successful!"
+          }
+        }
+      },
+      "PagedListDataResponseOfBookListDto": {
+        "required": [
+          "datas",
+          "pageSize",
+          "pageNumber",
+          "totalDatas"
+        ],
+        "type": "object",
+        "properties": {
+          "datas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookListDto"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalDatas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isFirstPage": {
+            "type": "boolean"
+          },
+          "isLastPage": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "PagedListDataResponseOfCategoryListDto": {
+        "required": [
+          "datas",
+          "pageSize",
+          "pageNumber",
+          "totalDatas"
+        ],
+        "type": "object",
+        "properties": {
+          "datas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CategoryListDto"
+            }
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalDatas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isFirstPage": {
+            "type": "boolean"
+          },
+          "isLastPage": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "RegisterCommand": {
+        "required": [
+          "nameSurname",
+          "email",
+          "phoneNumber",
+          "username",
+          "password",
+          "passwordConfirm"
+        ],
+        "type": "object",
+        "properties": {
+          "nameSurname": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "passwordConfirm": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "TopRatingBooksDto": {
+        "required": [
+          "bookId",
+          "bookName",
+          "rating",
+          "ratingCount"
+        ],
+        "type": "object",
+        "properties": {
+          "bookId": {
+            "type": "string"
+          },
+          "bookName": {
+            "type": "string"
+          },
+          "rating": {
+            "type": "number",
+            "format": "double"
+          },
+          "ratingCount": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "UpdateBookCommand": {
+        "required": [
+          "id",
+          "name",
+          "authorName",
+          "numberOfPages",
+          "stock",
+          "description",
+          "smallImageBase64",
+          "bigImageBase64",
+          "isEBook",
+          "eBookUrl"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "authorName": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfPages": {
+            "type": "string",
+            "nullable": true
+          },
+          "stock": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "smallImageBase64": {
+            "type": "string",
+            "nullable": true
+          },
+          "bigImageBase64": {
+            "type": "string",
+            "nullable": true
+          },
+          "isEBook": {
+            "type": "boolean"
+          },
+          "eBookUrl": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateBookRatingCommand": {
+        "required": [
+          "id",
+          "rating"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "UpdateCategoryCommand": {
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UpdateUserBookBorrowCommand": {
+        "required": [
+          "id",
+          "borrowDate",
+          "borrowEndDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "borrowDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "borrowEndDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "boolean"
+          }
+        }
+      },
+      "UserDto": {
+        "required": [
+          "username"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "BookCategory"
+    },
+    {
+      "name": "BookRating"
+    },
+    {
+      "name": "Books"
+    },
+    {
+      "name": "Categories"
+    },
+    {
+      "name": "Roles"
+    },
+    {
+      "name": "UserBookBorrow"
+    },
+    {
+      "name": "UserRoles"
+    }
+  ]
+}

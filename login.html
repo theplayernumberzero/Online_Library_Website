@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Online Library</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="main_page.html">
@@ -21,7 +19,6 @@
         </div>
     </nav>
 
-    <!-- Login Form -->
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -30,8 +27,8 @@
                         <h2 class="card-title text-center mb-4">Login</h2>
                         <form id="loginForm">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <label for="username" class="form-label">Email or Username</label>
+                                <input type="text" class="form-control" id="username" required>
                             </div>
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password</label>
@@ -43,7 +40,7 @@
                                 </div>
                             </div>
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn btn-primary" onclick="Login()">Login</button>
                             </div>
                         </form>
                         <div class="text-center mt-3">
@@ -55,9 +52,49 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function Login() {
+            event.preventDefault();
+            fetch("https://localhost:7122/api/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    usernameOrEmail: document.getElementById("username").value,
+                    password: document.getElementById("password").value
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(!data.StatusCode){
+                        localStorage.setItem("userId", data.userId);
+                        localStorage.setItem("token", data.token);
+                        window.location.href = "main_page.html";
+                    }
+                    else{
+                        if(data.StatusCode == 400){
+                            var errors="<ul>";
+                            data.Errors.forEach(error => {
+                                errors += `<li>${error}</li>`;
+                            });
+                            errors += "</ul>";
+                            showNotification(errors, "danger");
+                        }
+                        else if(data.StatusCode == 500){
+                            showNotification(data.Message, "danger");
+                        }
+                        else{
+                            showNotification("An unexpected error occurred", "danger");
+                        }
+                    }
+                })
+                .catch(error => {
+                    showNotification(error.message, "danger");
+                });
+        }
+    </script>
 </body>
-</html> 
+</html>

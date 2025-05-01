@@ -1,101 +1,106 @@
 /* General Styles */
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
 }
 
 /* Navbar Styles */
 .navbar-brand {
-  font-weight: bold;
-  font-size: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
 }
 
 .navbar-brand i {
-  margin-right: 8px;
-  color: #0d6efd;
+    margin-right: 8px;
+    color: #0d6efd;
 }
 
 /* Card Styles */
 .book-card {
-  transition: transform 0.3s ease;
-  margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .book-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 .book-card img {
-  height: 300px;
+    height: 300px;
 }
 
 /* Button Styles */
 .btn-primary {
-  padding: 8px 20px;
-  border-radius: 5px;
+    padding: 8px 20px;
+    border-radius: 5px;
 }
 
 .btn-outline-primary {
-  padding: 8px 20px;
-  border-radius: 5px;
+    padding: 8px 20px;
+    border-radius: 5px;
 }
 
 /* Form Styles */
 .form-control {
-  border-radius: 5px;
-  padding: 10px;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .form-control:focus {
-  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
 }
 
 /* Profile Page Styles */
 .profile-info {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 /* Book Detail Page */
 .book-detail {
-  background-color: white;
-  border-radius: 10px;
-  padding: 30px;
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
 }
 
 /* Animation Classes */
 .fade-in {
-  animation: fadeIn 0.5s ease-in;
+    animation: fadeIn 0.5s ease-in;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
+
 @media (max-width: 768px) {
-  .book-card img {
-    height: 200px;
-  }
-  .navbar-brand {
-    font-size: 1.2rem;
-  }
+    .book-card img {
+        height: 200px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
 }
+
 h1 {
-  color: hsla(32, 50%, 50%, 0.8);
+  color: hsla(32 50% 50% / .8);
+
   position: fixed;
   left: -100px;
   top: 50%;
   margin: 0;
+
   transform: rotate(-90deg) translateY(-50%);
 }
 
@@ -109,13 +114,16 @@ h1 {
   border-radius: 12px;
   padding: 20px;
   padding-bottom: 40px;
-  box-shadow: 0 8px 48px 2px hsla(10, 6%, 15%, 0.4);
+  box-shadow: 0 8px 48px 2px hsla(10 6% 15% / .4);
+
   display: flex;
   align-items: flex-end;
   justify-content: center;
+
   position: relative;
   overflow: hidden;
-  background: hsl(0, 0%, 90%);
+  background: hsl(0 0% 90%);
+
   box-sizing: border-box;
 }
 
@@ -123,18 +131,20 @@ h1 {
   position: absolute;
   top: 0;
   left: 0;
+
   width: inherit;
   height: inherit;
   transform-origin: left 50%;
+
   background: inherit;
+
   z-index: var(--z);
-  transition: 0.3s ease-out;
+  transition: .3s ease-out;
 }
 
 .ci img {
   -moz-user-select: none;
-  -webkit-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .ch {
@@ -142,19 +152,21 @@ h1 {
   top: 70%;
   left: 4%;
   transform: translateY(-50%);
+
   font-size: 2rem;
-  color: hsla(var(--h) var(--s) var(--l)/0.8);
-  text-shadow: 0 2px 10px hsla(var(--h), var(--s), 10%, 0.3);
+  color: hsla(var(--h) var(--s) var(--l) / .8);
+  text-shadow: 0 2px 10px hsla(var(--h) var(--s) 10% / .3);
 }
 
-.ch-p {
+.ch-p{
   position: absolute;
   top: 80%;
   left: 4%;
   transform: translateY(-50%);
+
   font-size: 1.3rem;
-  color: hsla(var(--h) var(--s) var(--l)/0.8);
-  text-shadow: 0 2px 10px hsla(var(--h), var(--s), 10%, 0.3);
+  color: hsla(var(--h) var(--s) var(--l) / .8);
+  text-shadow: 0 2px 10px hsla(var(--h) var(--s) 10% / .3);
 }
 
 .c input {
@@ -170,8 +182,10 @@ h1 {
   height: 10px;
   margin-right: 4px;
   border-radius: 20px;
-  background: hsla(0, 0%, 90%, 0.3);
+
+  background: hsla(0 0% 90% / .3);
   cursor: pointer;
+
   position: relative;
   z-index: 10;
 }
@@ -180,33 +194,37 @@ label:last-child {
   margin-right: 0;
 }
 
-input:checked + label {
-  background: linear-gradient(to right, hsla(var(--hue), 80%, 70%, 0.7), hsla(calc(var(--hue) + 30), 80%, 50%, 0.7));
+input:checked+label {
+  background: linear-gradient(to right,
+    hsla(var(--hue) 80% 70% / .7),
+    hsla(calc(var(--hue) + 30) 80% 50% / .7));
 }
 
-input:not(:checked) + label + .ci {
+input:not(:checked)+label+.ci {
   transform: translateX(-100%);
   opacity: 0;
 }
 
-input:checked + label + .ci ~ .ci {
+input:checked+label+.ci~.ci {
   transform: translateX(100%);
 }
 
-input:not(:checked) + label + .ci {
+input:not(:checked)+label+.ci {
   transition: 0;
 }
 
 html, body {
   height: 100%;
 }
-
 .wrapper {
   min-height: 100%;
   display: flex;
   flex-direction: column;
 }
-
 .content {
   flex: 1;
-}/*# sourceMappingURL=style.css.map */
+}
+
+// footer{
+//   margin-top: 25%;
+// }
